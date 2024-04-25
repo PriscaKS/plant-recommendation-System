@@ -1,213 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Plant Recommendation System</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles/stylesheet.css">
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="styles/stylesheet.css" />
     <!-- Google font -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap"
+      rel="stylesheet"
+    />
 
     <style>
-        /* STYLES FOR THE RECOMMEND */
-        body {
-            background-color: #f3f0f0; /* Set background color */
-        }
+          /* STYLES FOR THE RECOMMEND */
+          body {
+              background-color: #f3f0f0; /* Set background color */
+          }
 
-        .sidebar {
-            background-color: #333;
-            color: white;
-            position: fixed;
-            top: 0;
-            bottom: 0; /* Extend the sidebar to the bottom */
-            z-index: 1000; /* Ensure sidebar is above other content */
-            padding-top: 56px; /* Adjust for the top navigation bar */
-            padding-left: 20px; /* Add left padding for content */
-            overflow-y: auto; /* Allow sidebar to be scrollable if content exceeds height */
-        }
+          .sidebar {
+              background-color: #333;
+              color: white;
+              position: fixed;
+              top: 0;
+              bottom: 0; /* Extend the sidebar to the bottom */
+              z-index: 1000; /* Ensure sidebar is above other content */
+              padding-top: 56px; /* Adjust for the top navigation bar */
+              padding-left: 20px; /* Add left padding for content */
+              overflow-y: auto; /* Allow sidebar to be scrollable if content exceeds height */
+          }
 
-        .main-content {
-            background-color: #f3f0f0; /* Set your desired background color for the main content */
-            padding-top: 100px; /* Adjust for the top navigation bar */
-            margin-left: 250px; /* Adjust to extend main content beyond sidebar */
-            margin-top: 100px;
-            padding: 20px; /* Add padding for content */
-            min-height: 100vh; /* Ensure main content extends to the bottom of the viewport */
-        }
+          .main-content {
+              background-color: #f3f0f0; /* Set your desired background color for the main content */
+              padding-top: 100px; /* Adjust for the top navigation bar */
+              margin-left: 250px; /* Adjust to extend main content beyond sidebar */
+              margin-top: 100px;
+              padding: 20px; /* Add padding for content */
+              min-height: 100vh; /* Ensure main content extends to the bottom of the viewport */
+          }
 
-        .top-navbar {
-            z-index: 1030; /* Ensure navigation bar is above other content */
-        }
+          .top-navbar {
+              z-index: 1030; /* Ensure navigation bar is above other content */
+          }
 
-        .sidebar a {
-            color: white;
-        }
+          .sidebar a {
+              color: white;
+          }
 
-        .header-with-sidebar {
-            background-color: #007bff; /* Change to the blue color of your header */
-            padding: 20px; /* Adjust padding as needed */
-            margin-bottom: 0; /* Remove margin to make it touch the sidebar */
-        }
+          .header-with-sidebar {
+              background-color: #007bff; /* Change to the blue color of your header */
+              padding: 20px; /* Adjust padding as needed */
+              margin-bottom: 0; /* Remove margin to make it touch the sidebar */
+          }
 
-        /* Media query for responsiveness */
-        @media (max-width: 768px) {
-            .sidebar {
-                position: static; /* Set sidebar position to static for smaller screens */
-                height: auto; /* Reset height to auto */
-                padding-top: 0; /* Reset top padding */
-                margin-bottom: 20px; /* Add margin at the bottom */
-            }
+          /* Media query for responsiveness */
+          @media (max-width: 768px) {
+              .sidebar {
+                  position: static; /* Set sidebar position to static for smaller screens */
+                  height: auto; /* Reset height to auto */
+                  padding-top: 0; /* Reset top padding */
+                  margin-bottom: 20px; /* Add margin at the bottom */
+              }
 
-            .main-content {
-                margin-left: 0; /* Reset margin for main content */
-            }
-        }
+              .main-content {
+                  margin-left: 0; /* Reset margin for main content */
+              }
+          }
 
-        span {
-            color: #cdfadb;
-            font-weight: 300; /* Use a lighter font weight */
-            font-family: 'Roboto', sans-serif;
-            font-size: 20px;
-        }
+          span {
+              color: #cdfadb;
+              font-weight: 300; /* Use a lighter font weight */
+              font-family: 'Roboto', sans-serif;
+              font-size: 20px;
+          }
 
-        /* Custom CSS for the text content in the sidebar */
-        .sidebar-text {
-            color: #f8f9fa; /* Set text color to a lighter shade of gray */
-            margin-bottom: 1rem; /* Add some bottom margin */
-        }
+          /* Custom CSS for the text content in the sidebar */
+          .sidebar-text {
+              color: #f8f9fa; /* Set text color to a lighter shade of gray */
+              margin-bottom: 1rem; /* Add some bottom margin */
+          }
 
-        /* Style for the sidebar title */
-        .sidebar-title {
-            color: #f8f9fa; /* Set title color */
-            margin-bottom: 1rem; /* Add some bottom margin */
-        }
+          /* Style for the sidebar title */
+          .sidebar-title {
+              color: #f8f9fa; /* Set title color */
+              margin-bottom: 1rem; /* Add some bottom margin */
+          }
 
-        /* Additional styles for the main content */
-        .data-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding-top: 65px;
-        }
+          /* Additional styles for the main content */
+          .data-container {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              padding-top: 65px;
+          }
 
-        .data-item {
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 35px;
-        }
+          .data-item {
+              text-align: center;
+              margin-bottom: 20px;
+              font-size: 35px;
+          }
 
-        .value {
-            background-image: linear-gradient(to right, #007bff, #00ff00, #ffff00);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+          .value {
+              background-image: linear-gradient(to right, #007bff, #00ff00, #ffff00);
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+          }
 
-        /* Center and give rounded edges to the card */
-        .card {
-           
-            margin: auto;
-            border-radius: 35px;
-        }
-        .mainCard{
-            margin-top: 30px;
-        }
-        h2{
-            color: grey;
-        /}
-        /* .Btn {
-        background-image: linear-gradient(to right, #007bff, #00ff00, #ffff00);
-        color: white; 
-        border: none;
-        border-radius: 10px;
-        margin-top: 20px;
-        font-size: 12px; 
-        padding: 4px 8px; 
-        margin: 25px;
-        width: 150px; 
-    }  */
+          /* Center and give rounded edges to the card */
+          .card {
+
+              margin: auto;
+              border-radius: 35px;
+          }
+          .mainCard{
+              margin-top: 30px;
+          }
+          h2{
+              color: grey;
+          /}
+          /* .Btn {
+          background-image: linear-gradient(to right, #007bff, #00ff00, #ffff00);
+          color: white;
+          border: none;
+          border-radius: 10px;
+          margin-top: 20px;
+          font-size: 12px;
+          padding: 4px 8px;
+          margin: 25px;
+          width: 150px;
+      }  */
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- START -->
     <div class="container-fluid">
-        <div class="row">
-            <!-- Sidebar -->
-            <nav class="col-md-3 col-lg-4 d-md-block sidebar">
-                <div class="sidebar-sticky">
-                    <div class="text-center mb-3">
-                        <img src="images/npk.png" alt="Image" class="img-fluid">
-                    </div>
+      <div class="row">
+        <!-- Sidebar -->
+        <nav class="col-md-3 col-lg-4 d-md-block sidebar">
+          <div class="sidebar-sticky">
+            <div class="text-center mb-3">
+              <img src="images/npk.png" alt="Image" class="img-fluid" />
+            </div>
 
-                    <p>NPK refers to the essential elements Nitrogen, Phosphorus, and Potassium, which are vital for plant growth and development.</p>
-                    <p>
-                        <span class="">Nitrogen(N) </span><br> Nitrogen promotes leafy, green growth. It is essential for the formation of chlorophyll, which is crucial for photosynthesis, resulting in healthy foliage and vigorous growth.
-                    </p>
+            <p>
+              NPK refers to the essential elements Nitrogen, Phosphorus, and
+              Potassium, which are vital for plant growth and development.
+            </p>
+            <p>
+              <span class="">Nitrogen(N) </span><br />
+              Nitrogen promotes leafy, green growth. It is essential for the
+              formation of chlorophyll, which is crucial for photosynthesis,
+              resulting in healthy foliage and vigorous growth.
+            </p>
 
-                    <p>
-                        <span class="">Phosphorus (P) </span><br> Phosphorus aids in root and flower development. It is involved in energy transfer within the plant and plays a key role in flowering, fruiting, and seed formation.
-                    </p>
+            <p>
+              <span class="">Phosphorus (P) </span><br />
+              Phosphorus aids in root and flower development. It is involved in
+              energy transfer within the plant and plays a key role in
+              flowering, fruiting, and seed formation.
+            </p>
 
-                    <p>
-                        <span class="">Potassium (K) </span><br> Potassium contributes to overall plant health and disease resistance. It regulates water uptake and retention, enhances drought tolerance, and promotes strong stems and root growth, improving the plant's ability to withstand stress and disease.
-                    </p>
+            <p>
+              <span class="">Potassium (K) </span><br />
+              Potassium contributes to overall plant health and disease
+              resistance. It regulates water uptake and retention, enhances
+              drought tolerance, and promotes strong stems and root growth,
+              improving the plant's ability to withstand stress and disease.
+            </p>
+          </div>
+        </nav>
+      </div>
+      <div class="row">
+        <!-- MAIN CONTENT-->
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-8 px-md-4">
+          <!-- Main content here -->
+          <div class="mainCard">
+            <div class="card shadow">
+              <div class="card-body">
+                <div class="data-container">
+                  <div class="data-item">
+                    <h2>Nitrogen:</h2>
+                    <p class="value" id="nitrogen">0%</p>
+                  </div>
 
+                  <div class="data-item">
+                    <h2>Phosphorus:</h2>
+                    <p class="value" id="phosphorus">0%</p>
+                  </div>
+
+                  <div class="data-item">
+                    <h2>Potassium:</h2>
+                    <p class="value" id="potassium">0%</p>
+                  </div>
                 </div>
-            </nav>
-        </div>
-        <div class="row">
+              </div>
+              <!-- <button class="Btn">Submit for recommendation <button> -->
+            </div>
+            <!-- Button for generating pie chart -->
+            <button id="generateChartBtn" class="btn btn-primary mt-3">
+              Generate Pie Chart
+            </button>
 
-            <!-- MAIN CONTENT-->
-            <main role="main" class="col-md-9 ml-sm-auto col-lg-8 px-md-4">
-                <!-- Main content here -->
-                <div class="mainCard">
-                    <div class="card shadow">
-                        <div class="card-body">
-                            <div class="data-container">
-                                <div class="data-item">
-                                    <h2>Nitrogen:</h2>
-                                    <p class="value" id="nitrogen">0%</p>
-                                </div>
-    
-                                <div class="data-item">
-                                    <h2>Phosphorus:</h2>
-                                    <p class="value" id="phosphorus">0%</p>
-                                </div>
-    
-                                <div class="data-item">
-                                    <h2>Potassium:</h2>
-                                    <p class="value" id="potassium">0%</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- <button class="Btn">Submit for recommendation <button> -->
-                    </div>
-                    <!-- Button for generating pie chart -->
-                    <button id="generateChartBtn" class="btn btn-primary mt-3">Generate Pie Chart</button>
-                    
-  <!-- SCRIPT TO CONNECT TO THE RESULT PAGE -->
-    <!-- Add this script at the end of the body in index.html -->
-    <script>
-        // Add event listener to the button
-        document.getElementById('generateChartBtn').addEventListener('click', function() {
-            // Get the values of Nitrogen, Phosphorus, and Potassium
-            var nitrogenValue = parseFloat(document.getElementById('nitrogen').innerText);
-            var phosphorusValue = parseFloat(document.getElementById('phosphorus').innerText);
-            var potassiumValue = parseFloat(document.getElementById('potassium').innerText);
+            <!-- SCRIPT TO CONNECT TO THE RESULT PAGE -->
+            <!-- Add this script at the end of the body in index.html -->
+            <script>
+              // Add event listener to the button
+              document
+                .getElementById("generateChartBtn")
+                .addEventListener("click", function () {
+                  // Get the values of Nitrogen, Phosphorus, and Potassium
+                  var nitrogenValue = parseFloat(
+                    document.getElementById("nitrogen").innerText
+                  );
+                  var phosphorusValue = parseFloat(
+                    document.getElementById("phosphorus").innerText
+                  );
+                  var potassiumValue = parseFloat(
+                    document.getElementById("potassium").innerText
+                  );
 
-            // Redirect to the result page with URL parameters containing the values
-            window.location.href = "result_page.html?nitrogen=" + nitrogenValue + "&phosphorus=" + phosphorusValue + "&potassium=" + potassiumValue;
-        });
-    </script>
-
-                    
-                </div>
-               
-            </main>
-
-        </div>
+                  // Redirect to the result page with URL parameters containing the values
+                  window.location.href =
+                    "result_page.html?nitrogen=" +
+                    nitrogenValue +
+                    "&phosphorus=" +
+                    phosphorusValue +
+                    "&potassium=" +
+                    potassiumValue;
+                });
+            </script>
+          </div>
+        </main>
+      </div>
     </div>
     <!-- END -->
 
@@ -218,55 +250,56 @@
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
 
     <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js";
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
 
-        // Your web app's Firebase configuration here (Do not use the existing configuration)
-        const firebaseConfig = {
-            apiKey: "AIzaSyBOZhQYMBKBwP6AAUuO9th5CuJbdoubPoU",
-            authDomain: "rf4m-dea14.firebaseapp.com",
-            databaseURL: "https://rf4m-dea14-default-rtdb.firebaseio.com",
-            projectId: "rf4m-dea14",
-            storageBucket: "rf4m-dea14.appspot.com",
-            messagingSenderId: "610709170012",
-            appId: "1:610709170012:web:1bf018de8e1f1846e94399",
-            measurementId: "G-N4B1Q5EHPR",
-        };
+      // Your web app's Firebase configuration here (Do not use the existing configuration)
 
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
+      const firebaseConfig = {
+        apiKey: "AIzaSyDc6AkzOU1Q0S3_FPcJa_K4ro0gojw_r4w",
+        authDomain: "plantrs-85941.firebaseapp.com",
+        databaseURL: "https://plantrs-85941-default-rtdb.firebaseio.com",
+        projectId: "plantrs-85941",
+        storageBucket: "plantrs-85941.appspot.com",
+        messagingSenderId: "521593351342",
+        appId: "1:521593351342:web:e7cdba2c6b3cb678ffd13f",
+        measurementId: "G-SMSYRBEZXS",
+      };
 
-        // getting reference to the database
-        var database = firebase.database();
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
 
-        //getting reference to the data we want
-        var dataRef1 = database.ref("Nutrients/Nitrogen");
-        var dataRef2 = database.ref("Nutrients/Phosphorus");
-        var dataRef3 = database.ref("Nutrients/Potassium");
-        //fetch the data
-        dataRef1.on("value", function (getdata1) {
-            var Nitrogen = getdata1.val();
-            document.getElementById("nitrogen").innerHTML = Nitrogen + "%";
-        });
+      // getting reference to the database
+      var database = firebase.database();
 
-        dataRef2.on("value", function (getdata2) {
-            var Phosphorus = getdata2.val();
-            document.getElementById("phosphorus").innerHTML = Phosphorus + "%";
-        });
+      //getting reference to the data we want
+      var dataRef1 = database.ref("Nutrients/Nitrogen");
+      var dataRef2 = database.ref("Nutrients/Phosphorus");
+      var dataRef3 = database.ref("Nutrients/Potassium");
 
-        dataRef3.on("value", function (getdata3) {
-            var Potassium = getdata3.val();
-            document.getElementById("potassium").innerHTML = Potassium + "%";
-        });
+      //fetch the data
+      dataRef1.on("value", function (getdata1) {
+        var Nitrogen = getdata1.val();
+        document.getElementById("nitrogen").innerHTML = Nitrogen + "%";
+      });
+
+      dataRef2.on("value", function (getdata2) {
+        var Phosphorus = getdata2.val();
+        document.getElementById("phosphorus").innerHTML = Phosphorus + "%";
+      });
+
+      dataRef3.on("value", function (getdata3) {
+        var Potassium = getdata3.val();
+        document.getElementById("potassium").innerHTML = Potassium + "%";
+      });
     </script>
 
     <!-- Bootstrap JS -->
 
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
+  </body>
 </html>
