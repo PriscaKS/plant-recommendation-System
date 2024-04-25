@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Recommendation System</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/stylesheet.css">
+    <style>
+            /* STYLE FOR THE RESULT PAGE */
+
+  body {
+    background-color: #f3f0f0;/* Set background color */
+}
+.sidebar {
+    background-color: #333;
+    color: white;
+    position: fixed; /* Fix the sidebar to the left */
+    top: 0; /* Align the sidebar to the top */
+    bottom: 0; /* Extend the sidebar to the bottom */
+    z-index: 1000; /* Ensure sidebar is above other content */
+    padding-top: 56px; /* Adjust for the top navigation bar */
+    padding-left: 20px; /* Add left padding for content */
+    overflow-y: auto; /* Allow sidebar to be scrollable if content exceeds height */
+}
+.main-content {
+    background-color: #f3f0f0; /* Set your desired background color for the main content */
+    padding-top: 100px; /* Adjust for the top navigation bar */
+    margin-left: 250px; /* Adjust to extend main content beyond sidebar */
+    margin-top: 100px;
+    padding: 20px; /* Add padding for content */
+    min-height: 100vh; /* Ensure main content extends to the bottom of the viewport */
+}
+.top-navbar {
+    z-index: 1030; /* Ensure navigation bar is above other content */
+}
+.sidebar a {
+    color: white;
+}
+.header-with-sidebar {
+    background-color: #007bff; /* Change to the blue color of your header */
+    padding: 20px; /* Adjust padding as needed */
+    margin-bottom: 0; /* Remove margin to make it touch the sidebar */
+}
+/* Media query for responsiveness */
+@media (max-width: 768px) {
+    .sidebar {
+        position: static; /* Set sidebar position to static for smaller screens */
+        height: auto; /* Reset height to auto */
+        padding-top: 0; /* Reset top padding */
+        margin-bottom: 20px; /* Add margin at the bottom */
+    }
+    .main-content {
+        margin-left: 0; /* Reset margin for main content */
+    }
+}
+
+    </style>
+</head>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav class="col-md-3 col-lg-2 d-md-block sidebar">
+                <div class="sidebar-sticky">
+                    <!-- Pie Chart -->
+                    <canvas id="npkChart" width="200" height="200"></canvas>
+                </div>
+            </nav>
+
+          <!-- Main content -->
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4 main-content">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <img src="images/image2.jpg" class="card-img-top" alt="Plant Image">
+                <div class="card-body">
+                    <h5 class="card-title">Plant Name 1</h5>
+                    <p class="card-text">Plant Description 1 goes here...</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <img src="images/image1.jpg" class="card-img-top" alt="Plant Image">
+                <div class="card-body">
+                    <h5 class="card-title">Plant Name 2</h5>
+                    <p class="card-text">Plant Description 2 goes here...</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <img src="images/image2.jpg" class="card-img-top" alt="Plant Image">
+
+                <div class="card-body">
+                    <h5 class="card-title">Plant Name 3</h5>
+                    <p class="card-text">Plant Description 3 goes here...</p>
+                </div>
+            </div>
+        </div> 
+    </div>
+</main>
+
+                  
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        // Function to generate the pie chart
+        function generatePieChart(nitrogen, phosphorus, potassium) {
+            var ctx = document.getElementById('npkChart').getContext('2d');
+            var npkChart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: ['Nitrogen (N)', 'Phosphorus (P)', 'Potassium (K)'],
+                    datasets: [{
+                        label: 'NPK Values',
+                        data: [nitrogen, phosphorus, potassium],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.6)',
+                            'rgba(54, 162, 235, 0.6)',
+                            'rgba(255, 206, 86, 0.6)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    title: {
+                        display: true,
+                        text: 'NPK Values'
+                    }
+                }
+            });
+        }
+
+        // Get input values from URL parameters
+        var urlParams = new URLSearchParams(window.location.search);
+        var nitrogen = parseFloat(urlParams.get('nitrogen'));
+        var phosphorus = parseFloat(urlParams.get('phosphorus'));
+        var potassium = parseFloat(urlParams.get('potassium'));
+
+        // Generate pie chart with input values
+        generatePieChart(nitrogen, phosphorus, potassium);
+    </script>
+</body>
+</html>
