@@ -20,122 +20,113 @@
     />
 
     <style>
-          /* STYLES FOR THE RECOMMEND */
-          body {
-              background-color: #f3f0f0; /* Set background color */
-          }
+      /* STYLES FOR THE RECOMMEND */
 
-          .sidebar {
-              background-color: #333;
-              color: white;
-              position: fixed;
-              top: 0;
-              bottom: 0; /* Extend the sidebar to the bottom */
-              z-index: 1000; /* Ensure sidebar is above other content */
-              padding-top: 56px; /* Adjust for the top navigation bar */
-              padding-left: 20px; /* Add left padding for content */
-              overflow-y: auto; /* Allow sidebar to be scrollable if content exceeds height */
-          }
+      body {
+        background-color: #f3f0f0; /* Set background color */
+      }
+      .btn {
+        border-radius: 10px;
+      }
+      .sidebar {
+        background-color: #333;
+        color: white;
+        position: fixed;
+        top: 0;
+        bottom: 0; /* Extend the sidebar to the bottom */
+        z-index: 1000; /* Ensure sidebar is above other content */
+        padding-top: 56px; /* Adjust for the top navigation bar */
+        padding-left: 20px; /* Add left padding for content */
+        overflow-y: auto; /* Allow sidebar to be scrollable if content exceeds height */
+      }
 
-          .main-content {
-              background-color: #f3f0f0; /* Set your desired background color for the main content */
-              padding-top: 100px; /* Adjust for the top navigation bar */
-              margin-left: 250px; /* Adjust to extend main content beyond sidebar */
-              margin-top: 100px;
-              padding: 20px; /* Add padding for content */
-              min-height: 100vh; /* Ensure main content extends to the bottom of the viewport */
-          }
+      .main-content {
+        background-color: #f3f0f0; /* Set your desired background color for the main content */
+        padding-top: 100px; /* Adjust for the top navigation bar */
+        margin-left: 250px; /* Adjust to extend main content beyond sidebar */
+        margin-top: 100px;
+        padding: 20px; /* Add padding for content */
+        min-height: 100vh; /* Ensure main content extends to the bottom of the viewport */
+      }
 
-          .top-navbar {
-              z-index: 1030; /* Ensure navigation bar is above other content */
-          }
+      .top-navbar {
+        z-index: 1030; /* Ensure navigation bar is above other content */
+      }
 
-          .sidebar a {
-              color: white;
-          }
+      .sidebar a {
+        color: white;
+      }
 
-          .header-with-sidebar {
-              background-color: #007bff; /* Change to the blue color of your header */
-              padding: 20px; /* Adjust padding as needed */
-              margin-bottom: 0; /* Remove margin to make it touch the sidebar */
-          }
+      .header-with-sidebar {
+        background-color: #007bff; /* Change to the blue color of your header */
+        padding: 20px; /* Adjust padding as needed */
+        margin-bottom: 0; /* Remove margin to make it touch the sidebar */
+      }
 
-          /* Media query for responsiveness */
-          @media (max-width: 768px) {
-              .sidebar {
-                  position: static; /* Set sidebar position to static for smaller screens */
-                  height: auto; /* Reset height to auto */
-                  padding-top: 0; /* Reset top padding */
-                  margin-bottom: 20px; /* Add margin at the bottom */
-              }
+      /* Media query for responsiveness */
+      @media (max-width: 768px) {
+        .sidebar {
+          position: static; /* Set sidebar position to static for smaller screens */
+          height: auto; /* Reset height to auto */
+          padding-top: 0; /* Reset top padding */
+          margin-bottom: 20px; /* Add margin at the bottom */
+        }
 
-              .main-content {
-                  margin-left: 0; /* Reset margin for main content */
-              }
-          }
+        .main-content {
+          margin-left: 0; /* Reset margin for main content */
+        }
+      }
 
-          span {
-              color: #cdfadb;
-              font-weight: 300; /* Use a lighter font weight */
-              font-family: 'Roboto', sans-serif;
-              font-size: 20px;
-          }
+      span {
+        color: #cdfadb;
+        font-weight: 300; /* Use a lighter font weight */
+        font-family: "Roboto", sans-serif;
+        font-size: 20px;
+      }
 
-          /* Custom CSS for the text content in the sidebar */
-          .sidebar-text {
-              color: #f8f9fa; /* Set text color to a lighter shade of gray */
-              margin-bottom: 1rem; /* Add some bottom margin */
-          }
+      /* Custom CSS for the text content in the sidebar */
+      .sidebar-text {
+        color: #f8f9fa; /* Set text color to a lighter shade of gray */
+        margin-bottom: 1rem; /* Add some bottom margin */
+      }
 
-          /* Style for the sidebar title */
-          .sidebar-title {
-              color: #f8f9fa; /* Set title color */
-              margin-bottom: 1rem; /* Add some bottom margin */
-          }
+      /* Style for the sidebar title */
+      .sidebar-title {
+        color: #f8f9fa; /* Set title color */
+        margin-bottom: 1rem; /* Add some bottom margin */
+      }
 
-          /* Additional styles for the main content */
-          .data-container {
-              display: flex;
-              flex-direction: column;
-              align-items: center;
-              padding-top: 65px;
-          }
+      /* Additional styles for the main content */
+      .data-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 65px;
+      }
 
-          .data-item {
-              text-align: center;
-              margin-bottom: 20px;
-              font-size: 35px;
-          }
+      .data-item {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 35px;
+      }
 
-          .value {
-              background-image: linear-gradient(to right, #007bff, #00ff00, #ffff00);
-              -webkit-background-clip: text;
-              -webkit-text-fill-color: transparent;
-          }
+      .value {
+        background-image: linear-gradient(to right, #007bff, #00ff00, #ffff00);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
 
-          /* Center and give rounded edges to the card */
-          .card {
-
-              margin: auto;
-              border-radius: 35px;
-          }
-          .mainCard{
-              margin-top: 30px;
-          }
-          h2{
-              color: grey;
-          /}
-          /* .Btn {
-          background-image: linear-gradient(to right, #007bff, #00ff00, #ffff00);
-          color: white;
-          border: none;
-          border-radius: 10px;
-          margin-top: 20px;
-          font-size: 12px;
-          padding: 4px 8px;
-          margin: 25px;
-          width: 150px;
-      }  */
+      /* Center and give rounded edges to the card */
+      .card {
+        margin: auto;
+        border-radius: 35px;
+      }
+      .mainCard {
+        margin-top: 30px;
+      }
+      h2 {
+        color: grey;
+      }
     </style>
   </head>
 
@@ -205,8 +196,8 @@
               <!-- <button class="Btn">Submit for recommendation <button> -->
             </div>
             <!-- Button for generating pie chart -->
-            <button id="generateChartBtn" class="btn btn-primary mt-3">
-              Generate Pie Chart
+            <button id="generateChartBtn" class="btn btn-dark mt-3">
+              See Recommendation
             </button>
 
             <!-- SCRIPT TO CONNECT TO THE RESULT PAGE -->

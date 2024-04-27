@@ -1,119 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Plant Recommendation System</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles/stylesheet.css">
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="styles/stylesheet.css" />
     <style>
-        /* Adjust navbar padding for better spacing */
-        .navbar {
-            padding: 0;
+      /* Adjust navbar padding for better spacing */
+      .navbar {
+        padding: 0;
+      }
+      .extended-header {
+        height: 400px; /* Adjust the height as needed */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      /* Animation for cards */
+      @keyframes slideIn {
+        0% {
+          opacity: 0;
+          transform: translateY(50px);
         }
-        .extended-header {
-            height: 400px; /* Adjust the height as needed */
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        100% {
+          opacity: 1;
+          transform: translateY(0);
         }
-        /* Apply background image to the first div */
-        .first-div {
-            background-image: url('../images/image1.jpg');
-            background-size: cover;
-            background-position: center;
-            color: white; /* Text color for better visibility */
-        }
+      }
+
+      .card {
+        animation: slideIn 0.7s ease forwards;
+      }
     </style>
-</head>
-<body>
-
+  </head>
+  <body>
     <div class="first-div">
-        <!-- NAVIGATION BAR -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container">
-                <a class="navbar-brand" href="#">Plant Recommendation System</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#features">Features</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#about">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#contact">Contact</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+      <!-- NAVIGATION BAR -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+          <a class="navbar-brand" href="#">Plant Recommendation System</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="#features">Features</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#about">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#contact">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
 
-        <!-- WELCOMING DIV -->
-        <header class="bg-primary text-white py-5 extended-header">
-            <div class="container text-center">
-                <h1>Welcome to Plant Recommendation System</h1>
-                <p class="lead">Get personalized plant recommendations based on your needs</p>
-                <!-- Change the href attribute to point to the URL of the new page -->
-                <a href="recommend.html" class="btn btn-light btn-lg">Get Started</a>
-            </div>
-        </header>
+      <!-- WELCOMING DIV -->
+      <header class="bg-dark text-white py-5 extended-header">
+        <div class="container text-center background">
+          <h1>Welcome to Plant Recommendation System</h1>
+          <p class="lead">
+            Get personalized plant recommendations based on your needs
+          </p>
+          <!-- Change the href attribute to point to the URL of the new page -->
+          <a href="recommend.html" class="btn btn-light btn-lg">Get Started</a>
+        </div>
+      </header>
     </div>
 
-    
     <section id="features" class="bg-light py-5">
-        <div class="container">
-            <h2 class="text-center mb-4">Key Features</h2>
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h3 class="card-title">Plant Search</h3>
-                            <p class="card-text">Easily search for plants based on various criteria such as plant name, NPK requirements, moisture levels, and sunlight exposure.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h3 class="card-title">Plant Details</h3>
-                            <p class="card-text">Access detailed information about each recommended plant, including care instructions, growth habits, flowering season, and potential pests or diseases.</p>
-                        </div>
-                    </div>
-                </div>
-             
-                <div class="col-md-4 mb-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h3 class="card-title">Community Interaction</h3>
-                            <p class="card-text">Connect with fellow gardening enthusiasts, share tips and experiences, ask questions, and learn from each other in our vibrant community forum.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h3 class="card-title">Gardening Calendar</h3>
-                            <p class="card-text">Stay organized and plan your gardening activities with our integrated gardening calendar, which provides important dates and reminders based on your selected plants and location.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h3 class="card-title">Educational Resources</h3>
-                            <p class="card-text">Access a wealth of educational resources including articles, videos, tutorials, and expert advice on topics related to gardening, plant care, and sustainable practices.</p>
-                        </div>
-                    </div>
-                </div>
+      <div class="container">
+        <h2 class="text-center mb-4">Key Features</h2>
+        <div class="row">
+          <div class="col-md-4 mb-4">
+            <div class="card">
+              <div class="card-body">
+                <h3 class="card-title">Plant Search</h3>
+                <p class="card-text">
+                  Easily search for plants based on various criteria such as
+                  plant name, NPK requirements, moisture levels, and sunlight
+                  exposure.
+                </p>
+              </div>
             </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="card">
+              <div class="card-body">
+                <h3 class="card-title">Plant Details</h3>
+                <p class="card-text">
+                  Access detailed information about each recommended plant,
+                  including care instructions, growth habits, flowering season,
+                  and potential pests or diseases.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 mb-4">
+            <div class="card">
+              <div class="card-body">
+                <h3 class="card-title">Community Interaction</h3>
+                <p class="card-text">
+                  Connect with fellow gardening enthusiasts, share tips and
+                  experiences, ask questions, and learn from each other in our
+                  vibrant community forum.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="card">
+              <div class="card-body">
+                <h3 class="card-title">Gardening Calendar</h3>
+                <p class="card-text">
+                  Stay organized and plan your gardening activities with our
+                  integrated gardening calendar, which provides important dates
+                  and reminders based on your selected plants and location.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <section id="about" class="py-5">
+    <!-- <section id="about" class="py-5">
         <div class="container">
             <h2 class="text-center mb-4">About</h2>
             <p class="lead text-center">
@@ -158,11 +185,11 @@
         <div class="container text-center">
             <p>&copy; 2024 Plant Recommendation System</p>
         </div>
-    </footer>
+    </footer> -->
 
     <!-- Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
+  </body>
 </html>
